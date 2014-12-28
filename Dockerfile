@@ -31,8 +31,7 @@ RUN cd yasm && \
   autoreconf -fiv && \
   ./configure && \
   make && \
-  make install && \
-  make distclean
+  make install
 
 
 # libx264
@@ -42,8 +41,7 @@ RUN git clone --depth 1 git://git.videolan.org/x264
 RUN cd x264 && \
   ./configure --enable-static && \
   make && \
-  make install && \
-  make distclean
+  make install
 
 
 # libfdk_aac
@@ -54,8 +52,7 @@ RUN cd fdk-aac && \
   autoreconf -fiv && \
   ./configure --disable-shared && \
   make && \
-  make install && \
-  make distclean
+  make install
 
 
 # libmp3lame
@@ -66,8 +63,7 @@ RUN tar xzvf lame-3.99.5.tar.gz
 RUN cd lame-3.99.5 && \
   ./configure --disable-shared --enable-nasm && \
   make && \
-  make install && \
-  make distclean
+  make install
 
 
 # libopus
@@ -78,8 +74,7 @@ RUN cd opus && \
   autoreconf -fiv && \
   ./configure --disable-shared && \
   make && \
-  make install && \
-  make distclean
+  make install
 
 
 # libogg
@@ -90,8 +85,7 @@ RUN tar xzvf libogg-1.3.2.tar.gz
 RUN cd libogg-1.3.2 && \
   ./configure --disable-shared && \
   make && \
-  make install && \
-  make distclean
+  make install
 
 
 # libvorbis
@@ -102,8 +96,7 @@ RUN tar xzvf libvorbis-1.3.4.tar.gz
 RUN cd libvorbis-1.3.4 && \
   ./configure --with-ogg --disable-shared && \
   make && \
-  make install && \
-  make distclean
+  make install
 
 
 # libvpx
@@ -113,8 +106,7 @@ RUN git clone --depth 1 https://chromium.googlesource.com/webm/libvpx.git
 RUN cd libvpx && \
   ./configure --disable-examples && \
   make && \
-  make install && \
-  make clean
+  make install
 
 
 # ffmpeg (finally!!!)
@@ -125,5 +117,21 @@ RUN cd ffmpeg &&\
   ./configure --enable-gpl --enable-nonfree --enable-libfdk_aac --enable-libmp3lame --enable-libopus --enable-libvorbis --enable-libvpx --enable-libx264 &&\
   make &&\
   make install &&\
-  make distclean &&\
   hash -r
+
+
+# cleanup 
+WORKDIR /root
+RUN rm -rf /root/ffmpeg_sources
+
+RUN yum erase -y \
+  autoconf \
+  automake \
+  gcc \
+  gcc-c++ \
+  git \
+  libtool \
+  nasm \
+  zlib-devel
+
+RUN yum clean all
