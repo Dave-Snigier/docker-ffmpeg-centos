@@ -2,7 +2,7 @@
 # ffmpeg with lots of codecs on centos base
 
 FROM centos
-MAINTAINER Dave Snigier <dsnigier@gmail.com>
+MAINTAINER Dave Snigier <dave@davesnigier.com>
 VERSION               0.0.1
 
 RUN yum install -y \
