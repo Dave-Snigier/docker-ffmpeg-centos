@@ -103,7 +103,7 @@ RUN cd libvorbis-1.3.4 && \
 
 RUN git clone --depth 1 https://chromium.googlesource.com/webm/libvpx.git
 RUN cd libvpx && \
-  ./configure --disable-examples && \
+  ./configure --disable-examples --as=yasm && \
   make && \
   make install
 
