@@ -3,7 +3,6 @@
 
 FROM centos
 MAINTAINER Dave Snigier <dave@davesnigier.com>
-VERSION               0.0.1
 
 RUN yum install -y \
   autoconf \
