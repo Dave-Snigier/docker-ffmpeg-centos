@@ -14,7 +14,10 @@ RUN yum install -y \
   make \
   nasm \
   pkgconfig \
+  epel-release \
   zlib-devel
+
+RUN yum update && yum upgrade -y
 
 
 RUN mkdir /root/ffmpeg_sources
