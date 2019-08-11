@@ -60,9 +60,9 @@ RUN cd fdk-aac && \
 # libmp3lame
 # MP3 audio encoder.
 
-RUN curl -L -O http://downloads.sourceforge.net/project/lame/lame/3.99/lame-3.99.5.tar.gz
-RUN tar xzvf lame-3.99.5.tar.gz
-RUN cd lame-3.99.5 && \
+RUN curl -L -O http://downloads.sourceforge.net/project/lame/lame/3.99/lame-3.100.tar.gz
+RUN tar xzvf lame-3.100.tar.gz
+RUN cd lame-3.100 && \
   ./configure --disable-shared --enable-nasm && \
   make && \
   make install
