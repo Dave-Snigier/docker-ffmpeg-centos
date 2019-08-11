@@ -82,9 +82,9 @@ RUN cd opus && \
 # libogg
 # Ogg bitstream library. Required by libtheora and libvorbis.
 
-RUN curl -O http://downloads.xiph.org/releases/ogg/libogg-1.3.2.tar.gz
-RUN tar xzvf libogg-1.3.2.tar.gz
-RUN cd libogg-1.3.2 && \
+RUN curl -O http://downloads.xiph.org/releases/ogg/libogg-1.3.3.tar.gz
+RUN tar xzvf libogg-1.3.3.tar.gz
+RUN cd libogg-1.3.3 && \
   ./configure --disable-shared && \
   make && \
   make install
