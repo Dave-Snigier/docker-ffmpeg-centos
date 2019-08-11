@@ -93,9 +93,9 @@ RUN cd libogg-1.3.2 && \
 # libvorbis
 # Vorbis audio encoder. Requires libogg.
 
-RUN curl -O http://downloads.xiph.org/releases/vorbis/libvorbis-1.3.4.tar.gz
-RUN tar xzvf libvorbis-1.3.4.tar.gz
-RUN cd libvorbis-1.3.4 && \
+RUN curl -O http://downloads.xiph.org/releases/vorbis/libvorbis-1.3.6.tar.gz
+RUN tar xzvf libvorbis-1.3.6.tar.gz
+RUN cd libvorbis-1.3.6 && \
   ./configure --with-ogg --disable-shared && \
   make && \
   make install
